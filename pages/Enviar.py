@@ -31,6 +31,9 @@ if len(df_medidas) > 0:
     link = f"https://wa.me/{numero}?text={mensagem}"
 
     if st.button(f"Enviar Medidas para {aluno_selecionado}"):
-        webbrowser.open(link)
+        st.markdown(
+        f'<script>window.open("{link}", "_blank");</script>',
+        unsafe_allow_html=True
+    )
 else:
     st.warning("Cadastre Medidas!")

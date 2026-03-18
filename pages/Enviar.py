@@ -2,6 +2,7 @@ import webbrowser
 import streamlit as st
 import pandas as pd
 from funcao import verificar
+import urllib.parse
 
 st.set_page_config(layout="wide")
 st.title("Enviar Medida")
@@ -27,13 +28,15 @@ if len(df_medidas) > 0:
 
     numero = "55" + str(df_aluno_selecionado["telefone"].iloc[0])
     mensagem = f"Medida {df_aluno_selecionado["nome"].iloc[0]}%0aData da Medida: {df_medidas.loc[index, "data_medida"]}%0aNúmero da Medida: {df_medidas.loc[index, "numero_da_medida"]}%0a%0aQuadril: {df_medidas.loc[index, "quadril"]} cm%0aCintura: {df_medidas.loc[index, "cintura"]} cm%0aAbdômen: {df_medidas.loc[index, "abdomen"]} cm%0aBusto/ Peitoral: {df_medidas.loc[index, "peitoral"]} cm%0aCoxa Esquerda: {df_medidas.loc[index, "coxa_esquerda"]} cm%0aCoxa Direita: {df_medidas.loc[index, "coxa_direita"]} cm%0aBraço Esquerdo: {df_medidas.loc[index, "braco_esquerdo"]} cm%0aBraço Direito: {df_medidas.loc[index, "braco_direito"]} cm%0a"
+    mensagem = urllib.parse.quote(mensagem)
 
     link = f"https://wa.me/{numero}?text={mensagem}"
 
     if st.button(f"Enviar Medidas para {aluno_selecionado}"):
         st.markdown(
-        f'<script>window.open("{link}", "_blank");</script>',
+        f'<a href="{link}" target="_blank">👉 Enviar pelo WhatsApp</a>',
         unsafe_allow_html=True
     )
+        
 else:
     st.warning("Cadastre Medidas!")

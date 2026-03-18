@@ -29,17 +29,17 @@ if len(df_medidas) > 0:
     numero = "55" + str(df_aluno_selecionado['telefone'].iloc[0])
     mensagem = f"""Medida {df_aluno_selecionado['nome'].iloc[0]}
     
-    Data da Medida: {df_medidas.loc[index, 'data_medida']}
-    Número da Medida: {df_medidas.loc[index, 'numero_da_medida']}
+Data da Medida: {df_medidas.loc[index, 'data_medida']}
+Número da Medida: {df_medidas.loc[index, 'numero_da_medida']}
     
-    Quadril: {df_medidas.loc[index, 'quadril']} cm
-    Cintura: {df_medidas.loc[index, 'cintura']} cm
-    Abdômen: {df_medidas.loc[index, 'abdomen']} cm
-    Busto/ Peitoral: {df_medidas.loc[index, 'peitoral']} cm
-    Coxa Esquerda: {df_medidas.loc[index, 'coxa_esquerda']} cm
-    Coxa Direita: {df_medidas.loc[index, 'coxa_direita']} cm
-    Braço Esquerdo: {df_medidas.loc[index, 'braco_esquerdo']} cm
-    Braço Direito: {df_medidas.loc[index, 'braco_direito']} cm"""
+Quadril: {df_medidas.loc[index, 'quadril']} cm
+Cintura: {df_medidas.loc[index, 'cintura']} cm
+Abdômen: {df_medidas.loc[index, 'abdomen']} cm
+Busto/ Peitoral: {df_medidas.loc[index, 'peitoral']} cm
+Coxa Esquerda: {df_medidas.loc[index, 'coxa_esquerda']} cm
+Coxa Direita: {df_medidas.loc[index, 'coxa_direita']} cm
+Braço Esquerdo: {df_medidas.loc[index, 'braco_esquerdo']} cm
+Braço Direito: {df_medidas.loc[index, 'braco_direito']} cm"""
 
     mensagem = urllib.parse.quote(mensagem)
 
